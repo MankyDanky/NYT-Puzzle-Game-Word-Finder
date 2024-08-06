@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>NYT Puzzle Word Finder</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(74, 161, 255)</string>
