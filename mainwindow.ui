@@ -1,0 +1,1028 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(74, 161, 255)</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(74, 161, 255)</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>6</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTabWidget::pane {
+    border: none;
+}
+
+QTabBar::tab {
+	border: 2px solid white;
+    background-color: rgb(44, 97, 153);
+   	border-radius: 5px;
+    min-width: 150 px;
+	min-height: 25 px;
+	
+	
+	font: 900 10pt &quot;Arial Black&quot;;
+	color: white;
+}
+
+QTabBar::tab:hover {
+    background-color: rgb(55, 123, 191);
+}
+
+QTabBar::tab:selected {
+    background-color: rgb(74, 161, 255);
+}
+
+QTabBar::tab:!selected {
+    margin-top: 5 px;
+}
+
+QTabBar::tab:selected {
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+QTabBar::tab:last:selected {
+	margin-right: 0;
+}
+
+QTabBar::tab:first:selected {
+	margin-left: 0;
+}
+</string>
+      </property>
+      <property name="tabPosition">
+       <enum>QTabWidget::South</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="wordleTab">
+       <attribute name="title">
+        <string>Wordle</string>
+       </attribute>
+       <layout class="QVBoxLayout">
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="absentLettersTitleLabel">
+          <property name="styleSheet">
+           <string notr="true">font: 900 10pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>Absent Letters</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="absentLettersLayout1">
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="absentLettersLayout2">
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="correctLettersTitleLabel">
+          <property name="styleSheet">
+           <string notr="true">font: 900 10pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>Correct Letters</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="correctLettersLayout">
+          <item>
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="presentLettersTitleLabel">
+          <property name="styleSheet">
+           <string notr="true">font: 900 10pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>Present Letters</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="presentLettersLayout">
+          <item>
+           <spacer name="horizontalSpacer_17">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="wordleSearchButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	border: none;
+	border-radius: 5px;
+	background-color: white;
+	font: 900 10pt &quot;Arial Black&quot;;
+	color: rgb(74, 161, 255);
+	min-height: 25px;
+	min-width: 150px;
+}
+
+QPushButton:hover {
+	background-color: rgb(230, 230, 230);
+}
+
+QPushButton:pressed{
+	background-color: rgb(212, 212, 212);
+}</string>
+          </property>
+          <property name="text">
+           <string>Search</string>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="wordleResultsTitleLabel">
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>10</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">margin-bottom: 0px;
+margin-top: 10px;
+color: white;</string>
+          </property>
+          <property name="text">
+           <string>Results</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QScrollArea" name="wordleScrollArea">
+          <property name="styleSheet">
+           <string notr="true">QScrollArea {
+border: 4px solid white;
+border-radius: 10px;
+margin: 10px;
+margin-top: 0px;
+padding: 2px;
+color: white;
+min-height: 150px;
+}
+
+QScrollBar:vertical {
+	background: rgba(0, 0, 0, 0);
+border: none;
+width: 15px;
+margin: 15px 0 15px 0;
+}
+QScrollBar::sub-line:vertical {
+	background: white;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	height: 15px;
+	border-radius: 4px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+QScrollBar::sub-line:vertical:hover {
+	background: rgb(230, 230, 230);
+}
+
+QScrollBar::sub-line:vertical:pressed {
+	background: rgb(212, 212, 212);
+}
+
+QScrollBar::add-line:vertical {
+	background: white;
+	border: none;
+	border-radius: 4px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	height: 15px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+QScrollBar::add-line:vertical:hover {
+	background: rgb(230, 230, 230);
+}
+
+QScrollBar::add-line:vertical:pressed {
+	background: rgb(212, 212, 212);
+}
+
+QScrollBar::handle:vertical {
+	background: white;
+	border-radius: 4px;
+}
+
+QScrollBar::handle:vertical:hover {
+	background: rgb(230, 230, 230);
+}
+
+QScrollBar::handle:vertical:pressed {
+	background: rgb(212, 212, 212);
+}
+
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+
+</string>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="wordleScrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>750</width>
+             <height>140</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QLabel" name="wordleResultsLabel">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+	border: none;
+	font: 700 10pt &quot;Arial&quot;;
+	color: white;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="spellingBeeTab">
+       <attribute name="title">
+        <string>Spelling Bee</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <spacer name="verticalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="centerLetterTitleLabel">
+          <property name="styleSheet">
+           <string notr="true">font: 900 10pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>Center Letter</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="centerLetterLayout">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="surroundingLettersTitleLabel">
+          <property name="styleSheet">
+           <string notr="true">font: 900 10pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>Surrounding Letters</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="surroundingLetterLayout">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="spellingBeeSearchButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	border: none;
+	border-radius: 5px;
+	background-color: white;
+	font: 900 10pt &quot;Arial Black&quot;;
+	color: rgb(74, 161, 255);
+	min-height: 25px;
+	min-width: 150px;
+}
+
+QPushButton:hover {
+	background-color: rgb(230, 230, 230);
+}
+
+QPushButton:pressed{
+	background-color: rgb(212, 212, 212);
+}</string>
+          </property>
+          <property name="text">
+           <string>Search</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="spellingBeeResultsTitleLabel">
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">margin-bottom: 0px;
+margin-top: 10px;
+color: white;</string>
+          </property>
+          <property name="text">
+           <string>Results</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QScrollArea" name="spellingBeeScrollArea">
+          <property name="styleSheet">
+           <string notr="true">QScrollArea {
+border: 4px solid white;
+border-radius: 10px;
+margin: 10px;
+margin-top: 0px;
+padding: 2px;
+color: white;
+min-height: 150px;
+}
+
+QScrollBar:vertical {
+	background: rgba(0, 0, 0, 0);
+border: none;
+width: 15px;
+margin: 15px 0 15px 0;
+}
+QScrollBar::sub-line:vertical {
+	background: white;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	height: 15px;
+	border-radius: 4px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+QScrollBar::sub-line:vertical:hover {
+	background: rgb(230, 230, 230);
+}
+
+QScrollBar::sub-line:vertical:pressed {
+	background: rgb(212, 212, 212);
+}
+
+QScrollBar::add-line:vertical {
+	background: white;
+	border: none;
+	border-radius: 4px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	height: 15px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+QScrollBar::add-line:vertical:hover {
+	background: rgb(230, 230, 230);
+}
+
+QScrollBar::add-line:vertical:pressed {
+	background: rgb(212, 212, 212);
+}
+
+QScrollBar::handle:vertical {
+	background: white;
+	border-radius: 4px;
+}
+
+QScrollBar::handle:vertical:hover {
+	background: rgb(230, 230, 230);
+}
+
+QScrollBar::handle:vertical:pressed {
+	background: rgb(212, 212, 212);
+}
+
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+
+</string>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="spellingBeeScrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>750</width>
+             <height>140</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QLabel" name="spellingBeeResultsLabel">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+	border: none;
+	font: 700 10pt &quot;Arial&quot;;
+	color: white;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="letterBoxedTab">
+       <attribute name="title">
+        <string>Letter Boxed</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <spacer name="verticalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="side1Label">
+          <property name="styleSheet">
+           <string notr="true">font: 900 10pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>Side 1</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="side1Layout">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="side2Label">
+          <property name="styleSheet">
+           <string notr="true">font: 900 10pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>Side 2</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="side2Layout">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="side3Label">
+          <property name="styleSheet">
+           <string notr="true">font: 900 10pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>Side 3</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="side3Layout">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="side4Label">
+          <property name="styleSheet">
+           <string notr="true">font: 900 10pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+</string>
+          </property>
+          <property name="text">
+           <string>Side 4</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="side4Layout">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="letterBoxedSearchButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	border: none;
+	border-radius: 5px;
+	background-color: white;
+	font: 900 10pt &quot;Arial Black&quot;;
+	color: rgb(74, 161, 255);
+	min-height: 25px;
+	min-width: 150px;
+}
+
+QPushButton:hover {
+	background-color: rgb(230, 230, 230);
+}
+
+QPushButton:pressed{
+	background-color: rgb(212, 212, 212);
+}</string>
+          </property>
+          <property name="text">
+           <string>Search</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="letterBoxedResultsTitleLabel">
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>10</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">margin-bottom: 0px;
+margin-top: 10px;
+color: white;</string>
+          </property>
+          <property name="text">
+           <string>Results</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QScrollArea" name="letterBoxedScrollArea">
+          <property name="styleSheet">
+           <string notr="true">QScrollArea {
+border: 4px solid white;
+border-radius: 10px;
+margin: 10px;
+margin-top: 0px;
+padding: 2px;
+color: white;
+min-height: 150px;
+}
+
+QScrollBar:vertical {
+	background: rgba(0, 0, 0, 0);
+border: none;
+width: 15px;
+margin: 15px 0 15px 0;
+}
+QScrollBar::sub-line:vertical {
+	background: white;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	height: 15px;
+	border-radius: 4px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+QScrollBar::sub-line:vertical:hover {
+	background: rgb(230, 230, 230);
+}
+
+QScrollBar::sub-line:vertical:pressed {
+	background: rgb(212, 212, 212);
+}
+
+QScrollBar::add-line:vertical {
+	background: white;
+	border: none;
+	border-radius: 4px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	height: 15px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+QScrollBar::add-line:vertical:hover {
+	background: rgb(230, 230, 230);
+}
+
+QScrollBar::add-line:vertical:pressed {
+	background: rgb(212, 212, 212);
+}
+
+QScrollBar::handle:vertical {
+	background: white;
+	border-radius: 4px;
+}
+
+QScrollBar::handle:vertical:hover {
+	background: rgb(230, 230, 230);
+}
+
+QScrollBar::handle:vertical:pressed {
+	background: rgb(212, 212, 212);
+}
+
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+
+</string>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAsNeeded</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="letterBoxedScrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>750</width>
+             <height>140</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLabel" name="letterBoxedResultsLabel">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+	border: none;
+	font: 700 10pt &quot;Arial&quot;;
+	color: white;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
