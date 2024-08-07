@@ -9,6 +9,7 @@
 #include <QNetworkReply>
 #include <QJsonArray>
 #include <unordered_set>
+#include <map>
 #include <LetterEdit.h>
 
 using namespace std;
@@ -46,6 +47,8 @@ LetterEdit *sideLetterInputsHeads[4];
 QHBoxLayout *sideLayouts[4];
 unordered_set<QChar> eachSideLetters[4];
 unordered_set<QChar> allSideLetters;
+map<QChar, int> letterSideMap;
+
 
 // Define LetterEdit constructor
 LetterEdit::LetterEdit(QWidget *parent, LetterEditType type, int index, QWidget *next, QWidget *prev)
@@ -178,10 +181,12 @@ void LetterEdit::keyPressEvent(QKeyEvent *event) {
                     const QChar enteredLetter = text().at(0);
                     eachSideLetters[index].erase(enteredLetter);
                     allSideLetters.erase(enteredLetter);
+                    letterSideMap.erase(enteredLetter);
                 }
                 setText(QString(letter));
                 eachSideLetters[index].insert(letter);
                 allSideLetters.insert(letter);
+                letterSideMap[letter] = index;
                 if (next != nullptr) {
                     next->setFocus();
                 }
@@ -190,6 +195,7 @@ void LetterEdit::keyPressEvent(QKeyEvent *event) {
                     const QChar enteredLetter = text().at(0);
                     eachSideLetters[index].erase(enteredLetter);
                     allSideLetters.erase(enteredLetter);
+                    letterSideMap.erase(enteredLetter);
                     setText("");
                 }
                 if (prev != nullptr) {
@@ -452,7 +458,11 @@ void MainWindow::onLetterBoxedReply()
         QString word = object.value("word").toString();
         bool invalid = false;
         for (int i = 0; i < word.size(); ++i) {
-            if (word.at(i).toUpper() == presentLetters[i] || !('a' <= word.at(i) && word.at(i) <= 'z')) {
+            if (!('a' <= word.at(i) && word.at(i) <= 'z')) {
+                invalid = true;
+                break;
+            }
+            if (i > 0 && i < word.size() - 1 && (letterSideMap[word.at(i).toUpper()] == letterSideMap[word.at(i-1).toUpper()] || letterSideMap[word.at(i).toUpper()] == letterSideMap[word.at(i+1).toUpper()])) {
                 invalid = true;
                 break;
             }
